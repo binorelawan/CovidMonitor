@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+	<color name="colorPrimary">#424242</color>
+	<color name="colorPrimaryDark">#1b1b1b</color>
+	<color name="colorPrimaryLight">#6d6d6d</color>
+	<color name="colorAccent">#03DAC5</color>
+
+	<color name="backgroundCardView">#333333</color>
+
+
+	<color name="cases">#F2B900</color>
+	<color name="active">#0080FF</color>
+	<color name="death">#FF0000</color>
+	<color name="recovered">#20ed67</color>
+</resources>

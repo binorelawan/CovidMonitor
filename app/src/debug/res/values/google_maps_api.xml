@@ -1,0 +1,24 @@
+<resources>
+    <!--
+    TODO: Before you run your application, you need a Google Maps API key.
+
+    To get one, follow this link, follow the directions and press "Create" at the end:
+
+    https://console.developers.google.com/flows/enableapi?apiid=maps_android_backend&keyType=CLIENT_SIDE_ANDROID&r=0D:DC:4A:77:A8:6B:FA:01:FA:10:D8:2B:5F:BD:1B:23:2C:3B:41:E6%3Brelawan.covidmonitor
+
+    You can also add your credentials to an existing key, using these values:
+
+    Package name:
+    relawan.covidmonitor
+
+    SHA-1 certificate fingerprint:
+    0D:DC:4A:77:A8:6B:FA:01:FA:10:D8:2B:5F:BD:1B:23:2C:3B:41:E6
+
+    Alternatively, follow the directions here:
+    https://developers.google.com/maps/documentation/android/start#get-key
+
+    Once you have your key (it starts with "AIza"), replace the "google_maps_key"
+    string in this file.
+    -->
+    <string name="google_maps_key" templateMergeStrategy="preserve" translatable="false">AIzaSyDKNbuJSLiD9JZRqtBrinPWBq5Xrq69w94</string>
+</resources>

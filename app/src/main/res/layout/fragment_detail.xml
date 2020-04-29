@@ -1,0 +1,593 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+    </data>
+
+    <androidx.coordinatorlayout.widget.CoordinatorLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:transitionName="search_container"
+        android:background="@color/colorPrimaryLight">
+
+        <com.google.android.material.appbar.AppBarLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <com.google.android.material.appbar.CollapsingToolbarLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                app:contentScrim="?attr/colorPrimary"
+                app:expandedTitleGravity="top"
+                app:layout_scrollFlags="scroll|exitUntilCollapsed|snap">
+
+                <com.google.android.material.card.MaterialCardView
+                    android:id="@+id/cardView"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:cardBackgroundColor="@color/colorPrimary"
+                    app:cardElevation="10dp"
+                    app:strokeColor="@color/backgroundCardView"
+                    app:strokeWidth="2dp">
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                        <com.google.android.gms.maps.MapView
+                            android:id="@+id/map_view"
+                            android:layout_width="match_parent"
+                            android:layout_height="200dp"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
+
+                        <TextView
+                            android:id="@+id/case_title"
+                            style="@style/TextAppearance.TitleCase"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/normal_margin"
+                            android:text="@string/cases_title"
+                            android:textAlignment="center"
+                            app:layout_constraintEnd_toStartOf="@id/death_title"
+                            app:layout_constraintHorizontal_bias="0.5"
+                            app:layout_constraintHorizontal_chainStyle="spread"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@id/map_view" />
+
+                        <TextView
+                            android:id="@+id/death_title"
+                            style="@style/TextAppearance.TitleCase"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/normal_margin"
+                            android:text="@string/death_title"
+                            android:textAlignment="center"
+                            app:layout_constraintEnd_toStartOf="@id/recover_title"
+                            app:layout_constraintHorizontal_bias="0.5"
+                            app:layout_constraintStart_toEndOf="@id/case_title"
+                            app:layout_constraintTop_toBottomOf="@id/map_view" />
+
+                        <TextView
+                            android:id="@+id/recover_title"
+                            style="@style/TextAppearance.TitleCase"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/normal_margin"
+                            android:text="@string/recover_title"
+                            android:textAlignment="center"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintHorizontal_bias="0.5"
+                            app:layout_constraintStart_toEndOf="@id/death_title"
+                            app:layout_constraintTop_toBottomOf="@id/map_view" />
+
+                        <TextView
+                            android:id="@+id/confirm_text"
+                            style="@style/TextAppearance.Confirmed"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="@dimen/small_margin"
+                            android:textAlignment="center"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toStartOf="@id/death_text"
+                            app:layout_constraintHorizontal_bias="0.5"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@id/case_title"
+                            tools:text="Confirmed" />
+
+                        <TextView
+                            android:id="@+id/death_text"
+                            style="@style/TextAppearance.Death"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="@dimen/small_margin"
+                            android:textAlignment="center"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toStartOf="@id/recover_text"
+                            app:layout_constraintHorizontal_bias="0.5"
+                            app:layout_constraintStart_toEndOf="@id/confirm_text"
+                            app:layout_constraintTop_toBottomOf="@id/death_title"
+                            tools:text="Deaths" />
+
+                        <TextView
+                            android:id="@+id/recover_text"
+                            style="@style/TextAppearance.Recovered"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="@dimen/small_margin"
+                            android:textAlignment="center"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintHorizontal_bias="0.5"
+                            app:layout_constraintStart_toEndOf="@id/death_text"
+                            app:layout_constraintTop_toBottomOf="@id/recover_title"
+                            tools:text="Recovered" />
+
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+                </com.google.android.material.card.MaterialCardView>
+
+                <androidx.appcompat.widget.Toolbar
+                    android:layout_width="match_parent"
+                    android:layout_height="?attr/actionBarSize" />
+
+            </com.google.android.material.appbar.CollapsingToolbarLayout>
+
+        </com.google.android.material.appbar.AppBarLayout>
+
+        <androidx.core.widget.NestedScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/cardViewCountry"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="@dimen/small_margin"
+                android:layout_marginBottom="@dimen/small_margin"
+                app:cardBackgroundColor="@color/colorPrimary"
+                app:cardCornerRadius="0dp"
+                app:cardElevation="10dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/cardView"
+                app:strokeColor="@color/backgroundCardView"
+                app:strokeWidth="2dp">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <ImageView
+                        android:id="@+id/flag_detail"
+                        android:layout_width="150dp"
+                        android:layout_height="100dp"
+                        android:layout_margin="@dimen/normal_margin"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        tools:srcCompat="@drawable/ic_worldwide" />
+
+                    <View
+                        android:id="@+id/border_horizontal"
+                        android:layout_width="0dp"
+                        android:layout_height="2dp"
+                        android:background="@android:color/darker_gray"
+                        android:layout_marginTop="@dimen/normal_margin"
+                        android:layout_marginStart="@dimen/small_margin"
+                        android:layout_marginEnd="@dimen/small_margin"
+                        android:layout_marginBottom="@dimen/normal_margin"
+                        android:contentDescription="@string/borderline"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintHorizontal_bias="1.0"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/flag_detail"/>
+
+
+                    <TextView
+                        android:id="@+id/active_case_title"
+                        style="@style/TextAppearance.DetailCase"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="@dimen/small_margin"
+                        android:text="@string/active_case_title"
+                        app:layout_constraintEnd_toStartOf="@+id/equal_active_case"
+                        app:layout_constraintHorizontal_bias="0.5"
+                        app:layout_constraintHorizontal_chainStyle="packed"
+                        app:layout_constraintHorizontal_weight="4"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/border_horizontal" />
+
+                    <TextView
+                        android:id="@+id/equal_active_case"
+                        style="@style/TextAppearance.DetailCase"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="@dimen/small_margin"
+                        android:text="@string/equal"
+                        android:textAlignment="center"
+                        app:layout_constraintBottom_toBottomOf="@id/active_case_title"
+                        app:layout_constraintEnd_toStartOf="@+id/active_case_text"
+                        app:layout_constraintHorizontal_bias="0.5"
+                        app:layout_constraintHorizontal_weight="1"
+                        app:layout_constraintStart_toEndOf="@+id/active_case_title"
+                        app:layout_constraintTop_toTopOf="@id/active_case_title" />
+
+                    <TextView
+                        android:id="@+id/active_case_text"
+                        style="@style/TextAppearance.DetailCase"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="@dimen/small_margin"
+                        app:layout_constraintBottom_toBottomOf="@id/active_case_title"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintHorizontal_bias="0.5"
+                        app:layout_constraintHorizontal_weight="4"
+                        app:layout_constraintStart_toEndOf="@+id/equal_active_case"
+                        app:layout_constraintTop_toTopOf="@id/active_case_title"
+                        tools:text="@string/active_case_title" />
+
+                    <TextView
+                        android:id="@+id/case_per_million_title"
+                        style="@style/TextAppearance.DetailCase"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="@dimen/small_margin"
+                        android:text="@string/case_per_million"
+                        app:layout_constraintEnd_toStartOf="@+id/equal_case_per_million"
+                        app:layout_constraintHorizontal_bias="0.5"
+                        app:layout_constraintHorizontal_chainStyle="packed"
+                        app:layout_constraintHorizontal_weight="4"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/active_case_title" />
+
+                    <TextView
+                        android:id="@+id/equal_case_per_million"
+                        style="@style/TextAppearance.DetailCase"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="@dimen/small_margin"
+                        android:text="@string/equal"
+                        android:textAlignment="center"
+                        app:layout_constraintBottom_toBottomOf="@id/case_per_million_title"
+                        app:layout_constraintEnd_toStartOf="@+id/case_per_million_text"
+                        app:layout_constraintHorizontal_bias="0.5"
+                        app:layout_constraintHorizontal_weight="1"
+                        app:layout_constraintStart_toEndOf="@+id/case_per_million_title"
+                        app:layout_constraintTop_toTopOf="@id/case_per_million_title" />
+
+                    <TextView
+                        android:id="@+id/case_per_million_text"
+                        style="@style/TextAppearance.DetailCase"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="@dimen/small_margin"
+                        app:layout_constraintBottom_toBottomOf="@id/case_per_million_title"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintHorizontal_bias="0.5"
+                        app:layout_constraintHorizontal_weight="4"
+                        app:layout_constraintStart_toEndOf="@+id/equal_case_per_million"
+                        app:layout_constraintTop_toTopOf="@id/case_per_million_title"
+                        tools:text="@string/case_per_million" />
+
+                    <TextView
+                        android:id="@+id/today_case_title"
+                        style="@style/TextAppearance.DetailCase"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="@dimen/small_margin"
+                        android:text="@string/today_confirm_title"
+                        app:layout_constraintEnd_toStartOf="@+id/equal_today_case"
+                        app:layout_constraintHorizontal_bias="0.5"
+                        app:layout_constraintHorizontal_chainStyle="packed"
+                        app:layout_constraintHorizontal_weight="4"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/case_per_million_title" />
+
+                    <TextView
+                        android:id="@+id/equal_today_case"
+                        style="@style/TextAppearance.DetailCase"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="@dimen/small_margin"
+                        android:text="@string/equal"
+                        android:textAlignment="center"
+                        app:layout_constraintBottom_toBottomOf="@id/today_case_title"
+                        app:layout_constraintEnd_toStartOf="@+id/today_case_text"
+                        app:layout_constraintHorizontal_bias="0.5"
+                        app:layout_constraintHorizontal_weight="1"
+                        app:layout_constraintStart_toEndOf="@+id/today_case_title"
+                        app:layout_constraintTop_toTopOf="@id/today_case_title" />
+
+
+                    <TextView
+                        android:id="@+id/today_case_text"
+                        style="@style/TextAppearance.DetailCase"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="@dimen/small_margin"
+                        app:layout_constraintBottom_toBottomOf="@+id/today_case_title"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintHorizontal_bias="0.5"
+                        app:layout_constraintHorizontal_weight="4"
+                        app:layout_constraintStart_toEndOf="@+id/equal_today_case"
+                        app:layout_constraintTop_toTopOf="@+id/today_case_title"
+                        tools:text="@string/today_confirm_title" />
+
+                    <TextView
+                        android:id="@+id/today_deaths_title"
+                        style="@style/TextAppearance.DetailCase"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="@dimen/small_margin"
+                        android:text="@string/today_deaths_title"
+                        app:layout_constraintEnd_toStartOf="@+id/equal_today_deaths"
+                        app:layout_constraintHorizontal_bias="0.5"
+                        app:layout_constraintHorizontal_chainStyle="packed"
+                        app:layout_constraintHorizontal_weight="4"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/today_case_title" />
+
+                    <TextView
+                        android:id="@+id/equal_today_deaths"
+                        style="@style/TextAppearance.DetailCase"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="@dimen/small_margin"
+                        android:text="@string/equal"
+                        android:textAlignment="center"
+                        app:layout_constraintBottom_toBottomOf="@id/today_deaths_title"
+                        app:layout_constraintEnd_toStartOf="@+id/today_deaths_text"
+                        app:layout_constraintHorizontal_bias="0.5"
+                        app:layout_constraintHorizontal_weight="1"
+                        app:layout_constraintStart_toEndOf="@+id/today_deaths_title"
+                        app:layout_constraintTop_toTopOf="@id/today_deaths_title" />
+
+                    <TextView
+                        android:id="@+id/today_deaths_text"
+                        style="@style/TextAppearance.DetailCase"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="@dimen/small_margin"
+                        app:layout_constraintBottom_toBottomOf="@id/today_deaths_title"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintHorizontal_bias="0.5"
+                        app:layout_constraintHorizontal_weight="4"
+                        app:layout_constraintStart_toEndOf="@+id/equal_today_deaths"
+                        app:layout_constraintTop_toTopOf="@id/today_deaths_title"
+                        tools:text="@string/today_deaths_title" />
+
+                    <TextView
+                        android:id="@+id/deaths_per_million_title"
+                        style="@style/TextAppearance.DetailCase"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="@dimen/small_margin"
+                        android:text="@string/deaths_per_million_title"
+                        app:layout_constraintEnd_toStartOf="@+id/equal_deaths_per_million"
+                        app:layout_constraintHorizontal_bias="0.5"
+                        app:layout_constraintHorizontal_chainStyle="packed"
+                        app:layout_constraintHorizontal_weight="4"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/today_deaths_title" />
+
+                    <TextView
+                        android:id="@+id/equal_deaths_per_million"
+                        style="@style/TextAppearance.DetailCase"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="@dimen/small_margin"
+                        android:text="@string/equal"
+                        android:textAlignment="center"
+                        app:layout_constraintBottom_toBottomOf="@id/deaths_per_million_title"
+                        app:layout_constraintEnd_toStartOf="@+id/deaths_per_million_text"
+                        app:layout_constraintHorizontal_bias="0.5"
+                        app:layout_constraintHorizontal_weight="1"
+                        app:layout_constraintStart_toEndOf="@+id/deaths_per_million_title"
+                        app:layout_constraintTop_toTopOf="@id/deaths_per_million_title" />
+
+                    <TextView
+                        android:id="@+id/deaths_per_million_text"
+                        style="@style/TextAppearance.DetailCase"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="@dimen/small_margin"
+                        app:layout_constraintBottom_toBottomOf="@id/deaths_per_million_title"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintHorizontal_bias="0.5"
+                        app:layout_constraintHorizontal_weight="4"
+                        app:layout_constraintStart_toEndOf="@+id/equal_deaths_per_million"
+                        app:layout_constraintTop_toTopOf="@id/deaths_per_million_title"
+                        tools:text="@string/deaths_per_million_title" />
+
+                    <TextView
+                        android:id="@+id/critical_title"
+                        style="@style/TextAppearance.DetailCase"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="@dimen/small_margin"
+                        android:text="@string/critical_title"
+                        app:layout_constraintEnd_toStartOf="@+id/equal_critical"
+                        app:layout_constraintHorizontal_bias="0.5"
+                        app:layout_constraintHorizontal_chainStyle="packed"
+                        app:layout_constraintHorizontal_weight="4"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/deaths_per_million_title" />
+
+                    <TextView
+                        android:id="@+id/equal_critical"
+                        style="@style/TextAppearance.DetailCase"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="@dimen/small_margin"
+                        android:text="@string/equal"
+                        android:textAlignment="center"
+                        app:layout_constraintBottom_toBottomOf="@id/critical_title"
+                        app:layout_constraintEnd_toStartOf="@+id/critical_text"
+                        app:layout_constraintHorizontal_bias="0.5"
+                        app:layout_constraintHorizontal_weight="1"
+                        app:layout_constraintStart_toEndOf="@+id/critical_title"
+                        app:layout_constraintTop_toTopOf="@id/critical_title" />
+
+                    <TextView
+                        android:id="@+id/critical_text"
+                        style="@style/TextAppearance.DetailCase"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="@dimen/small_margin"
+                        app:layout_constraintBottom_toBottomOf="@id/critical_title"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintHorizontal_bias="0.5"
+                        app:layout_constraintHorizontal_weight="4"
+                        app:layout_constraintStart_toEndOf="@+id/equal_critical"
+                        app:layout_constraintTop_toTopOf="@id/critical_title"
+                        tools:text="@string/critical_title" />
+
+                    <TextView
+                        android:id="@+id/tests_title"
+                        style="@style/TextAppearance.DetailCase"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="@dimen/small_margin"
+                        android:text="@string/tests_title"
+                        app:layout_constraintEnd_toStartOf="@+id/equal_tests"
+                        app:layout_constraintHorizontal_bias="0.5"
+                        app:layout_constraintHorizontal_chainStyle="packed"
+                        app:layout_constraintHorizontal_weight="4"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/critical_title" />
+
+                    <TextView
+                        android:id="@+id/equal_tests"
+                        style="@style/TextAppearance.DetailCase"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="@dimen/small_margin"
+                        android:text="@string/equal"
+                        android:textAlignment="center"
+                        app:layout_constraintBottom_toBottomOf="@id/tests_title"
+                        app:layout_constraintEnd_toStartOf="@+id/tests_text"
+                        app:layout_constraintHorizontal_bias="0.5"
+                        app:layout_constraintHorizontal_weight="1"
+                        app:layout_constraintStart_toEndOf="@+id/tests_title"
+                        app:layout_constraintTop_toTopOf="@id/tests_title" />
+
+                    <TextView
+                        android:id="@+id/tests_text"
+                        style="@style/TextAppearance.DetailCase"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="@dimen/small_margin"
+                        app:layout_constraintBottom_toBottomOf="@id/tests_title"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintHorizontal_bias="0.5"
+                        app:layout_constraintHorizontal_weight="4"
+                        app:layout_constraintStart_toEndOf="@+id/equal_tests"
+                        app:layout_constraintTop_toTopOf="@id/tests_title"
+                        tools:text="@string/tests_title" />
+
+                    <TextView
+                        android:id="@+id/tests_per_million_title"
+                        style="@style/TextAppearance.DetailCase"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="@dimen/small_margin"
+                        android:text="@string/tests_per_million_title"
+                        app:layout_constraintEnd_toStartOf="@+id/equal_tests_per_million"
+                        app:layout_constraintHorizontal_bias="0.5"
+                        app:layout_constraintHorizontal_chainStyle="packed"
+                        app:layout_constraintHorizontal_weight="4"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/tests_title" />
+
+                    <TextView
+                        android:id="@+id/equal_tests_per_million"
+                        style="@style/TextAppearance.DetailCase"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="@dimen/small_margin"
+                        android:text="@string/equal"
+                        android:textAlignment="center"
+                        app:layout_constraintBottom_toBottomOf="@id/tests_per_million_title"
+                        app:layout_constraintEnd_toStartOf="@+id/tests_per_million_text"
+                        app:layout_constraintHorizontal_bias="0.5"
+                        app:layout_constraintHorizontal_weight="1"
+                        app:layout_constraintStart_toEndOf="@+id/tests_per_million_title"
+                        app:layout_constraintTop_toTopOf="@id/tests_per_million_title" />
+
+                    <TextView
+                        android:id="@+id/tests_per_million_text"
+                        style="@style/TextAppearance.DetailCase"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="@dimen/small_margin"
+                        app:layout_constraintBottom_toBottomOf="@id/tests_per_million_title"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintHorizontal_bias="0.5"
+                        app:layout_constraintHorizontal_weight="4"
+                        app:layout_constraintStart_toEndOf="@+id/equal_tests_per_million"
+                        app:layout_constraintTop_toTopOf="@id/tests_per_million_title"
+                        tools:text="@string/tests_per_million_title" />
+
+                    <TextView
+                        android:id="@+id/continent_title"
+                        style="@style/TextAppearance.DetailCase"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        app:layout_constraintHorizontal_weight="4"
+                        android:layout_marginTop="@dimen/small_margin"
+                        android:layout_marginEnd="@dimen/small_margin"
+                        android:layout_marginStart="@dimen/small_margin"
+                        android:layout_marginBottom="@dimen/normal_margin"
+                        android:text="@string/continent_title"
+                        app:layout_constraintEnd_toStartOf="@+id/equal_continent"
+                        app:layout_constraintHorizontal_bias="0.5"
+                        app:layout_constraintHorizontal_chainStyle="packed"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/tests_per_million_title" />
+
+                    <TextView
+                        android:id="@+id/equal_continent"
+                        style="@style/TextAppearance.DetailCase"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        app:layout_constraintHorizontal_weight="1"
+                        android:layout_margin="@dimen/small_margin"
+                        android:text="@string/equal"
+                        android:textAlignment="center"
+                        app:layout_constraintBottom_toBottomOf="@id/continent_title"
+                        app:layout_constraintEnd_toStartOf="@+id/continent_text"
+                        app:layout_constraintHorizontal_bias="0.5"
+                        app:layout_constraintStart_toEndOf="@+id/continent_title"
+                        app:layout_constraintTop_toTopOf="@id/continent_title" />
+
+                    <TextView
+                        android:id="@+id/continent_text"
+                        style="@style/TextAppearance.DetailCase"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        app:layout_constraintHorizontal_weight="4"
+                        android:layout_margin="@dimen/small_margin"
+                        app:layout_constraintBottom_toBottomOf="@id/continent_title"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintHorizontal_bias="0.5"
+                        app:layout_constraintStart_toEndOf="@+id/equal_continent"
+                        app:layout_constraintTop_toTopOf="@id/continent_title"
+                        tools:text="@string/continent_title" />
+
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+
+        </androidx.core.widget.NestedScrollView>
+
+    </androidx.coordinatorlayout.widget.CoordinatorLayout>
+
+</layout>

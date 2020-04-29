@@ -1,0 +1,39 @@
+<resources>
+	
+	<!-- Base application theme. -->
+	<style name="AppTheme" parent="Theme.MaterialComponents.Light.DarkActionBar">
+		<!-- Customize your theme here. -->
+		<item name="colorPrimary">@color/colorPrimary</item>
+		<item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+		<item name="colorAccent">@color/colorAccent</item>
+	</style>
+
+	<style name="TextAppearance.DisplayName" parent="TextAppearance.MaterialComponents.Headline5">
+		<item name="android:textColor">@android:color/white</item>
+	</style>
+
+	<style name="TextAppearance.TitleCase" parent="TextAppearance.MaterialComponents.Caption">
+		<item name="android:textColor">@android:color/white</item>
+	</style>
+
+	<style name="TextAppearance.Active" parent="TextAppearance.MaterialComponents.Subtitle1">
+		<item name="android:textColor">@color/active</item>
+	</style>
+
+	<style name="TextAppearance.Confirmed" parent="TextAppearance.MaterialComponents.Subtitle1">
+		<item name="android:textColor">@color/cases</item>
+	</style>
+
+	<style name="TextAppearance.Death" parent="TextAppearance.MaterialComponents.Subtitle1">
+		<item name="android:textColor">@color/death</item>
+	</style>
+
+	<style name="TextAppearance.Recovered" parent="TextAppearance.MaterialComponents.Subtitle1">
+		<item name="android:textColor">@color/recovered</item>
+	</style>
+
+	<style name="TextAppearance.DetailCase" parent="TextAppearance.MaterialComponents.Subtitle1">
+		<item name="android:textColor">@android:color/white</item>
+	</style>
+
+</resources>
