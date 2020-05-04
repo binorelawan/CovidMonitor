@@ -3,8 +3,6 @@ package relawan.covidmonitor.view.detail
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import relawan.covidmonitor.model.Country
-import relawan.covidmonitor.model.Indonesia
-import relawan.covidmonitor.view.indonesia.IndonesiaViewModel
 
 class DetailModelFactory (
     private val country: Country?) : ViewModelProvider.Factory {

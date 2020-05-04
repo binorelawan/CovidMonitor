@@ -4,10 +4,12 @@ import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import androidx.lifecycle.viewModelScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
 import relawan.covidmonitor.model.Global
 import relawan.covidmonitor.model.Indonesia
-import relawan.covidmonitor.repository.GlobalRepoCallback
-import relawan.covidmonitor.repository.IndonesiaRepoCallback
 import relawan.covidmonitor.repository.Repository
 
 class HomeViewModel(private val repository: Repository): ViewModel() {
@@ -27,34 +29,34 @@ class HomeViewModel(private val repository: Repository): ViewModel() {
 
     fun getGlobalData() {
 
-        repository.getGlobalDataRepo(object : GlobalRepoCallback {
-            override fun onError() {
-                Log.d(TAG, "global error")
-                _globalData.value = null
+        viewModelScope.launch {
+            withContext(Dispatchers.IO) {
+                try {
+                    val response = repository.getGlobalDataRepo()
+                    Log.d(TAG, response.affectedCountries.toString())
+                    _globalData.postValue(response)
+                } catch (e: Exception) {
+                    Log.d(TAG, e.message!!)
+                    _globalData.postValue(null)
+                }
             }
-
-            override fun onSuccess(global: Global) {
-                Log.d(TAG, global.updated.toString())
-                _globalData.value = global
-            }
-
-        })
+        }
     }
 
     fun getIndonesiaData() {
 
-        repository.getIndonesiaDataRepo(object : IndonesiaRepoCallback {
-            override fun onError() {
-                Log.d(TAG, "indonesia error")
-                _indonesiaData.value = null
+        viewModelScope.launch {
+            withContext(Dispatchers.IO) {
+                try {
+                    val response = repository.getIndonesiaDataRepo()
+                    Log.d(TAG, response.country)
+                    _indonesiaData.postValue(response)
+                } catch (e: Exception) {
+                    Log.d(TAG, e.message!!)
+                    _indonesiaData.postValue(null)
+                }
             }
-
-            override fun onSuccess(indonesia: Indonesia) {
-                Log.d(TAG, indonesia.countryInfo.flag)
-                _indonesiaData.value = indonesia
-            }
-
-        })
+        }
     }
 
     companion object {

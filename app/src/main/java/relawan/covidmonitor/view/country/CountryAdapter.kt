@@ -2,22 +2,10 @@ package relawan.covidmonitor.view.country
 
 import android.util.Log
 import android.view.LayoutInflater
-import android.view.View
 import android.view.ViewGroup
-import android.widget.Filter
-import android.widget.Filterable
-import androidx.navigation.fragment.FragmentNavigator
-import androidx.navigation.fragment.FragmentNavigatorExtras
 import androidx.recyclerview.widget.RecyclerView
-import com.bumptech.glide.Glide
-import com.bumptech.glide.request.RequestOptions
-import kotlinx.android.synthetic.main.list_country.*
-import kotlinx.android.synthetic.main.list_country.view.*
 import relawan.covidmonitor.databinding.ListCountryBinding
 import relawan.covidmonitor.model.Country
-import relawan.covidmonitor.model.CountryItem
-import java.util.*
-import kotlin.collections.ArrayList
 
 class CountryAdapter(private val onClickListener: OnClickListener) : RecyclerView.Adapter<CountryAdapter.ViewHolder>(){
 

@@ -4,9 +4,13 @@ import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import androidx.lifecycle.viewModelScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
 import relawan.covidmonitor.model.Country
 import relawan.covidmonitor.repository.Repository
-import relawan.covidmonitor.repository.SearchRepoCallback
+import java.lang.Exception
 
 class SearchViewModel(val repository: Repository): ViewModel() {
 
@@ -14,20 +18,20 @@ class SearchViewModel(val repository: Repository): ViewModel() {
     val searchData : LiveData<Country>
         get() = _searchData
 
-    fun getSearchData(country: String) : LiveData<Country> {
+    fun getSearchData(country: String) {
 
-        return repository.getSearchDataRepo(country, object : SearchRepoCallback {
-            override fun onError() {
-                Log.d(TAG, "search error")
-                _searchData.value = null
+        viewModelScope.launch {
+            withContext(Dispatchers.IO) {
+                try {
+                    val response = repository.getSearchDataRepo(country)
+                    Log.d(TAG, response.country)
+                    _searchData.postValue(response)
+                } catch (e: Exception) {
+                    Log.d(TAG, e.message!!)
+                    _searchData.postValue(null)
+                }
             }
-
-            override fun onSuccess(country: Country) {
-                Log.d(TAG, country.country)
-                _searchData.value = country
-            }
-
-        })
+        }
     }
 
     companion object {

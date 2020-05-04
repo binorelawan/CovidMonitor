@@ -19,9 +19,7 @@ import com.google.android.gms.maps.model.MarkerOptions
 import com.google.android.material.transition.MaterialContainerTransform
 import kotlinx.android.synthetic.main.fragment_indonesia.*
 
-import relawan.covidmonitor.R
 import relawan.covidmonitor.databinding.FragmentDetailBinding
-import relawan.covidmonitor.view.indonesia.IndonesiaFragment
 
 /**
  * A simple [Fragment] subclass.
@@ -82,7 +80,7 @@ class DetailFragment : Fragment(), OnMapReadyCallback {
             binding.criticalText.text = it.critical.toString()
             binding.testsText.text = it.tests.toString()
             binding.testsPerMillionText.text = it.testsPerOneMillion.toString()
-            binding.continentText.text = it.continent.toString()
+            binding.continentText.text = it.continent
         })
 
         return binding.root

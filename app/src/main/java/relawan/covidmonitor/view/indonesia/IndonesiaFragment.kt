@@ -83,7 +83,7 @@ class IndonesiaFragment : Fragment(), OnMapReadyCallback {
             binding.criticalText.text = it.critical.toString()
             binding.testsText.text = it.tests.toString()
             binding.testsPerMillionText.text = it.testsPerOneMillion.toString()
-            binding.continentText.text = it.continent.toString()
+            binding.continentText.text = it.continent
         })
 
         return binding.root

@@ -29,7 +29,7 @@ object DateTime {
     }
 
     fun getDateFormatted(updated: Long) : String{
-        val formatter = SimpleDateFormat("HH:mm - dd MMM yyyy", Locale.getDefault());
+        val formatter = SimpleDateFormat("HH:mm - dd MMM yyyy", Locale.getDefault())
         return formatter.format(Date(updated))
     }
 

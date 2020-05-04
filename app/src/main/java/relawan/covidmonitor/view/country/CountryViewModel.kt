@@ -4,14 +4,12 @@ import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import androidx.lifecycle.viewModelScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
 import relawan.covidmonitor.model.Country
-import relawan.covidmonitor.model.CountryItem
-import relawan.covidmonitor.network.CoronaApi
-import relawan.covidmonitor.repository.CountryRepoCallback
 import relawan.covidmonitor.repository.Repository
-import retrofit2.Call
-import retrofit2.Callback
-import retrofit2.Response
 
 class CountryViewModel(private val repository: Repository): ViewModel() {
 
@@ -21,23 +19,22 @@ class CountryViewModel(private val repository: Repository): ViewModel() {
 
     init {
         getCountryData()
-//        noRepository()
     }
 
     fun getCountryData() {
 
-        repository.getCountryDataRepo(object : CountryRepoCallback {
-            override fun onError() {
-                Log.d(TAG, "country error")
-                _countryData.value = null
+        viewModelScope.launch {
+            withContext(Dispatchers.IO) {
+                try {
+                    val response = repository.getCountryDataRepo()
+                    Log.d(TAG, response.size.toString())
+                    _countryData.postValue(response)
+                } catch (e: Exception) {
+                    Log.d(TAG, e.message!!)
+                    _countryData.postValue(null)
+                }
             }
-
-            override fun onSuccess(country: List<Country>) {
-                Log.d(TAG, "${country.size}")
-                _countryData.value = country
-            }
-
-        })
+        }
     }
 
 

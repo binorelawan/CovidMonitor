@@ -3,7 +3,6 @@ package relawan.covidmonitor.view.search
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import relawan.covidmonitor.repository.Repository
-import relawan.covidmonitor.view.home.HomeViewModel
 
 class SearchModelFactory (
     private val repository: Repository

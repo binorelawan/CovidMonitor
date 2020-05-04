@@ -1,23 +1,14 @@
 package relawan.covidmonitor.view.country
 
-import android.app.SearchManager
-import android.content.Context
 import android.os.Bundle
-import android.text.TextUtils
 import android.view.*
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
-import androidx.appcompat.widget.SearchView
-import androidx.cardview.widget.CardView
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.findNavController
-import androidx.navigation.fragment.FragmentNavigatorExtras
 import androidx.navigation.fragment.findNavController
-import com.google.android.material.transition.Hold
 import com.google.android.material.transition.MaterialContainerTransform
-import kotlinx.android.synthetic.main.fragment_country.*
-import kotlinx.android.synthetic.main.list_country.*
 import relawan.covidmonitor.R
 
 import relawan.covidmonitor.databinding.FragmentCountryBinding
