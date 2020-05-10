@@ -36,4 +36,12 @@
 		<item name="android:textColor">@android:color/white</item>
 	</style>
 
+	<style name="TextAppearance.Myth" parent="TextAppearance.MaterialComponents.Headline5">
+		<item name="android:textColor">@color/myth</item>
+	</style>
+
+	<style name="TextAppearance.DetailMyth" parent="TextAppearance.MaterialComponents.Subtitle2">
+		<item name="android:textColor">@android:color/white</item>
+	</style>
+
 </resources>

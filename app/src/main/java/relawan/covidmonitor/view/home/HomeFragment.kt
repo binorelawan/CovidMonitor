@@ -6,10 +6,12 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.findNavController
 import androidx.navigation.fragment.FragmentNavigatorExtras
 import androidx.navigation.fragment.findNavController
 import com.bumptech.glide.Glide
@@ -44,7 +46,7 @@ class HomeFragment : Fragment() {
 
         setActionBarTitle(getString(R.string.app_name))
 
-        val viewModelFactory = HomeModelFactory(repository)
+        val viewModelFactory = HomeModelFactory(context, repository)
 
         homeViewModel = ViewModelProvider(this, viewModelFactory).get(HomeViewModel::class.java)
 
@@ -143,6 +145,17 @@ class HomeFragment : Fragment() {
                 binding.errorIndonesia.visibility = View.VISIBLE
             }
 
+        })
+
+        homeViewModel.mythBuster.observe(viewLifecycleOwner, Observer {
+
+//            val listToArray = it.toTypedArray()
+            binding.cardViewMyth.setOnClickListener {view ->
+//                Log.d(TAG, "arrayToList = ${listToArray.toList()}")
+//                Toast.makeText(context, "${it}", Toast.LENGTH_LONG).show()
+                val action = HomeFragmentDirections.actionHomeFragmentToMythFragment(it.toTypedArray())
+                view.findNavController().navigate(action)
+            }
         })
         return binding.root
     }

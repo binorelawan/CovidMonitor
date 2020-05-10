@@ -1,5 +1,7 @@
 package relawan.covidmonitor.view.home
 
+import android.app.Activity
+import android.content.Context
 import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
@@ -10,9 +12,11 @@ import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 import relawan.covidmonitor.model.Global
 import relawan.covidmonitor.model.Indonesia
+import relawan.covidmonitor.model.Myth
 import relawan.covidmonitor.repository.Repository
+import relawan.covidmonitor.utils.MythData
 
-class HomeViewModel(private val repository: Repository): ViewModel() {
+class HomeViewModel(val context: Context?, private val repository: Repository): ViewModel() {
 
     private val _globalData = MutableLiveData<Global>()
     val globalData : LiveData<Global>
@@ -22,9 +26,14 @@ class HomeViewModel(private val repository: Repository): ViewModel() {
     val indonesiaData : LiveData<Indonesia>
         get() = _indonesiaData
 
+    private val _mythBuster = MutableLiveData<List<Myth>>()
+    val mythBuster : LiveData<List<Myth>>
+        get() = _mythBuster
+
     init {
         getGlobalData()
         getIndonesiaData()
+        getMythData()
     }
 
     fun getGlobalData() {
@@ -58,6 +67,14 @@ class HomeViewModel(private val repository: Repository): ViewModel() {
             }
         }
     }
+
+    fun getMythData() {
+
+        val listMyth = context?.let { MythData(it).getListData() }
+        Log.d(TAG, "list myth = ${listMyth?.size}")
+        _mythBuster.value = listMyth
+    }
+
 
     companion object {
         private val TAG = HomeViewModel::class.java.simpleName

@@ -37,5 +37,97 @@
     <string name="enter_country">Enter Country</string>
     <string name="the_country_can_not_be_found">The country can not be found</string>
 
+    <string name="myth_buster">Myth Buster</string>
 
+    <string-array name="myth">
+        <item>There are NO drugs licensed for prevent COVID-19</item>
+        <item>Adding pepper to meals DOES NOT prevent COVID-19</item>
+        <item>COVID-19 is NOT transmitted through housefiles</item>
+        <item>Spraying disinfectant into body WILL NOT protect you against COVID-19</item>
+        <item>Drinking methanol, ethanol or bleach DOES NOT prevent or cure COVID-19</item>
+        <item>5G mobile networks DO NOT spread COVID-19</item>
+        <item>Exposing yourself to the sun DOES NOT prevent COVID-19</item>
+        <item>You can recover from the COVID-19</item>
+        <item>Drinking alcohol DOES NOT protect you against COVID-19</item>
+        <item>COVID-19 virus can be transmitted in areas with hot and humid climates</item>
+        <item>Cold weather and snow CANNOT kill COVID-19</item>
+        <item>Taking a hot bath DOES NOT prevent COVID-19</item>
+        <item>COVID-19 CANNOT be transmitted through mosquito bites</item>
+        <item>Ultra-violet lamps SHOULD NOT be used to disinfect areas of your skin</item>
+        <item>How effective are thermal scanners in detecting people infected with COVID-19?</item>
+        <item>Do vaccines against pneumonia protect you against COVID-19?</item>
+        <item>Can eating garlic help prevent infection with COVID-19?</item>
+        <item>Does COVID-19 affect older people, or are younger people also susceptible?</item>
+        <item>Are antibiotics effective in preventing and treating COVID-19?</item>
+        <item>Are there any specific medicines to prevent or treat COVID-19?</item>
+    </string-array>
+
+    <string-array name="myth_detail">
+        <item>While several drug trials are ongoing, there is currently no proof that hydroxychloroquine or any other drug can cure or prevent COVID-19.
+            \nThe misuse of hydroxychloroquine can cause serious side effects and illness and even lead to death.
+            \nWHO is coordinating efforts to develop and evaluate medicines to treat COVID-19.</item>
+        <item>Hot peppers in your food, though very tasty, cannot prevent or cure COVID-19. 
+            \nThe best way to protect yourself against COVID-19 is to keep at least 1 metre away from others and to wash your hands frequently and thoroughly.
+            \nIt is also beneficial for your general health to maintain a balanced diet, stay well hydrated, exercise regularly and sleep well.</item>
+        <item>To date, there is no evidence or information to suggest that the COVID-19 virus transmitted through houseflies.
+            \nThe virus that cause COVID-19 spreads primarily through droplets generated when an infected person coughs, sneezes or speaks.
+            \nYou can also become infected by touching a contaminated surface and then touching your eyes, nose or mouth before washing your hands.
+            \nTo protect yourself, keep at least 1-metre distance from others and disinfect frequently-touched surfaces.
+            \nClean your hands thoroughly and often and avoid touching your eyes, mouth and nose.</item>
+        <item>Do not under any circumstance spray or introduce bleach or any other disinfectant into your body.
+            \nThese substances can be poisonous if ingested and cause irritation and damage to your skin and eyes.
+            \nBleach and disinfectant should be used carefully to disinfect surfaces only.
+            \nRemember to keep chlorine (bleach) and other disinfectants out of reach of children.</item>
+        <item>Methanol, ethanol, and bleach are poisons.
+            \nDrinking them can lead to disability and death.
+            \nMethanol, ethanol, and bleach are sometimes used in cleaning products to kill the virus on surfaces – however you should never drink them.
+            \nThey will not kill the virus in your body and they will harm your internal organs.
+            \nTo protect yourself against COVID-19, disinfect objects and surfaces, especially the ones you touch regularly.
+            \nYou can use diluted bleach or alcohol for that. Make sure you clean your hands frequently and thoroughly and avoid touching your eyes, mouth and nose.</item>
+        <item>Viruses cannot travel on radio waves/mobile networks.
+            \nCOVID-19 is spreading in many countries that do not have 5G mobile networks.
+            \nCOVID-19 is spread through respiratory droplets when an infected person coughs, sneezes or speaks.
+            \nPeople can also be infected by touching a contaminated surface and then their eyes, mouth or nose. </item>
+        <item>You can catch COVID-19, no matter how sunny or hot the weather is.
+            \nCountries with hot weather have reported cases of COVID-19.
+            \nTo protect yourself, make sure you clean your hands frequently and thoroughly and avoid touching your eyes, mouth, and nose.</item>
+        <item>Most of the people who catch COVID-19 can recover and eliminate the virus from their bodies.
+            \nIf you catch the disease, make sure you treat your symptoms.
+            \nIf you have cough, fever, and difficulty breathing, seek medical care early – but call your health facility by telephone first.
+            \nMost patients recover thanks to supportive care.</item>
+        <item>Frequent or excessive alcohol consumption can increase your risk of health problems</item>
+        <item>The best way to protect yourself against COVID-19 is by maintaining physical distance of at least 1 metre from others and frequently cleaning your hands.
+            \nBy doing this you eliminate viruses that may be on your hands and avoid infection that could occur by then touching your eyes, mouth, and nose.</item>
+        <item>There is no reason to believe that cold weather can kill COVID-19 or other diseases.
+            \nThe normal human body temperature remains around 36.5°C to 37°C, regardless of the external temperature or weather.
+            \nThe most effective way to protect yourself against COVID-19 is by frequently cleaning your hands with alcohol-based hand rub or washing them with soap and water.</item>
+        <item>Taking a hot bath will not prevent you from catching COVID-19.
+            \nYour normal body temperature remains around 36.5°C to 37°C, regardless of the temperature of your bath or shower.
+            \nActually, taking a hot bath with extremely hot water can be harmful, as it can burn you.
+            \nThe best way to protect yourself against COVID-19 is by frequently cleaning your hands.
+            \nBy doing this you eliminate viruses that may be on your hands and avoid infection that could occur by then touching your eyes, mouth, and nose.</item>
+        <item>To date there has been no information nor evidence to suggest that COVID-19 could be transmitted by mosquitoes.
+            \nCOVID-19 is a respiratory virus which spreads primarily through droplets generated when an infected person coughs or sneezes, or through droplets of saliva or discharge from the nose.
+            \nTo protect yourself, clean your hands frequently with an alcohol-based hand rub or wash them with soap and water.
+            \nAlso, avoid close contact with anyone who is coughing and sneezing.</item>
+        <item>UV radiation can cause skin irritation and damage your eyes.
+            \nCleaning your hands with alcohol-based hand rub or washing your hands with soap and water are the most effective ways to remove the virus.</item>
+        <item>Thermal scanners are effective in detecting people who have developed a fever (i.e. have a higher than normal body temperature) because of infection with COVID-19.
+            \nHowever, they cannot detect people who are infected but are not yet sick with fever.
+            \nThis is because it takes between 2 and 10 days before people who are infected become sick and develop a fever.</item>
+        <item>No. Vaccines against pneumonia, such as pneumococcal vaccine and Haemophilus influenza type B (Hib) vaccine, do not provide protection against COVID-19.
+            \nThe virus is so new and different that it needs its own vaccine. Researchers are trying to develop a vaccine against 2019-nCoV, and WHO is supporting their efforts.
+            \nAlthough these vaccines are not effective against 2019-nCoV, vaccination against respiratory illnesses is highly recommended to protect your health.</item>
+        <item>Garlic is a healthy food that may have some antimicrobial properties.
+            \nHowever, there is no evidence from the current outbreak that eating garlic has protected people from COVID-19.</item>
+        <item>People of all ages can be infected by COVID-19 (2019-nCoV). Older people, and people with pre-existing medical conditions (such as asthma, diabetes, heart disease) appear to be more vulnerable to becoming severely ill with the virus.
+            \nWHO advises people of all ages to take steps to protect themselves from the virus, for example by following good hand hygiene and good respiratory hygiene.</item>
+        <item>No, antibiotics do not work against viruses, only bacteria.
+            \nCOVID-19 (2019-nCoV) is a virus and, therefore, antibiotics should not be used as a means of prevention or treatment.
+            \nHowever, if you are hospitalized for the 2019-nCoV, you may receive antibiotics because bacterial co-infection is possible.</item>
+        <item>To date, there is no specific medicine recommended to prevent or treat COVID-19 (2019-nCoV).
+            \nHowever, those infected with the virus should receive appropriate care to relieve and treat symptoms, and those with severe illness should receive optimized supportive care. 
+            \nSome specific treatments are under investigation, and will be tested through clinical trials. 
+            \nWHO is helping to accelerate research and development efforts with a range or partners.</item>
+    </string-array>
 </resources>

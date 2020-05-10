@@ -13,6 +13,9 @@
         <action
             android:id="@+id/action_homeFragment_to_countryFragment"
             app:destination="@id/countryFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_mythFragment"
+            app:destination="@id/mythFragment" />
     </fragment>
 
     <fragment
@@ -40,7 +43,15 @@
             app:destination="@id/searchFragment" />
     </fragment>
 
+    <fragment
+        android:id="@+id/mythFragment"
+        android:name="relawan.covidmonitor.view.myth.MythFragment"
+        android:label="MythFragment" >
 
+        <argument
+            android:name="myth"
+            app:argType="relawan.covidmonitor.model.Myth[]"/>
+    </fragment>
 
     <fragment
         android:id="@+id/searchFragment"

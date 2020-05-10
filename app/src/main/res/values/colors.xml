@@ -12,4 +12,6 @@
 	<color name="active">#0080FF</color>
 	<color name="death">#FF0000</color>
 	<color name="recovered">#20ed67</color>
+
+	<color name="myth">#2195D3</color>
 </resources>
