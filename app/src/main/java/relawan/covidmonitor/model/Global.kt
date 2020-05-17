@@ -13,7 +13,7 @@ data class Global(
     val casesPerOneMillion: Int?,
     val critical: Int?,
     val deaths: Int?,
-    val deathsPerOneMillion: Int?,
+    val deathsPerOneMillion: Double?,
     val recovered: Int?,
     val tests: Int?,
     val testsPerOneMillion: Double?,

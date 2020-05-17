@@ -19,6 +19,6 @@ class IndonesiaViewModel(indonesia: Indonesia?): ViewModel() {
     init {
         _indonesiaData.value = indonesia
 
-        _coordinate.value = listOf(indonesia?.countryInfo?.lat?.toDouble()!!, indonesia.countryInfo.long.toDouble())
+        _coordinate.value = listOf(indonesia?.countryInfo?.lat?.toDouble()!!, indonesia.countryInfo.long?.toDouble()!!)
     }
 }

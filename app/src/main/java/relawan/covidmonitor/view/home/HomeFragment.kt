@@ -32,7 +32,6 @@ class HomeFragment : Fragment() {
 
     private lateinit var homeViewModel: HomeViewModel
 
-    private val repository = Repository()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -46,7 +45,10 @@ class HomeFragment : Fragment() {
 
         setActionBarTitle(getString(R.string.app_name))
 
-        val viewModelFactory = HomeModelFactory(context, repository)
+        val globalData = arguments?.let { HomeFragmentArgs.fromBundle(it).global }
+        val indonesiaData = arguments?.let { HomeFragmentArgs.fromBundle(it).indonesia }
+
+        val viewModelFactory = HomeModelFactory(context, globalData, indonesiaData)
 
         homeViewModel = ViewModelProvider(this, viewModelFactory).get(HomeViewModel::class.java)
 
@@ -133,7 +135,7 @@ class HomeFragment : Fragment() {
                 binding.flagImage.let { view ->
                     Glide
                         .with(view.context)
-                        .load(indonesia.countryInfo.flag)
+                        .load(indonesia.countryInfo?.flag)
                         .apply(RequestOptions()).override(90, 30)
                         .into(binding.flagImage)
                 }
@@ -149,15 +151,18 @@ class HomeFragment : Fragment() {
 
         homeViewModel.mythBuster.observe(viewLifecycleOwner, Observer {
 
-//            val listToArray = it.toTypedArray()
             binding.cardViewMyth.setOnClickListener {view ->
-//                Log.d(TAG, "arrayToList = ${listToArray.toList()}")
-//                Toast.makeText(context, "${it}", Toast.LENGTH_LONG).show()
                 val action = HomeFragmentDirections.actionHomeFragmentToMythFragment(it.toTypedArray())
                 view.findNavController().navigate(action)
             }
         })
         return binding.root
+    }
+
+    override fun onActivityCreated(savedInstanceState: Bundle?) {
+        super.onActivityCreated(savedInstanceState)
+        (activity as AppCompatActivity).supportActionBar?.show()
+
     }
 
     private fun setActionBarTitle(title: String) {

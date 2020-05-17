@@ -3,6 +3,7 @@ package relawan.covidmonitor
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.navigation.findNavController
+import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.NavigationUI
 
 class MainActivity : AppCompatActivity() {
@@ -13,7 +14,13 @@ class MainActivity : AppCompatActivity() {
 
         // show back button
         val navController = this.findNavController(R.id.nav_host_fragment)
-        NavigationUI.setupActionBarWithNavController(this, navController)
+        val appBarConfiguration = AppBarConfiguration
+            .Builder(
+                R.id.splashFragment,
+                R.id.homeFragment)
+            .build()
+
+        NavigationUI.setupActionBarWithNavController(this, navController, appBarConfiguration)
 
     }
 

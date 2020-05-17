@@ -44,4 +44,12 @@
 		<item name="android:textColor">@android:color/white</item>
 	</style>
 
+	<style name="TextAppearance.TitleSplash" parent="TextAppearance.MaterialComponents.Headline3">
+		<item name="android:textColor">@android:color/white</item>
+	</style>
+
+
+	<style name="AppTheme.Splash" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+
+	</style>
 </resources>

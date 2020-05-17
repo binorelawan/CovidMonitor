@@ -16,7 +16,7 @@ import relawan.covidmonitor.model.Myth
 import relawan.covidmonitor.repository.Repository
 import relawan.covidmonitor.utils.MythData
 
-class HomeViewModel(val context: Context?, private val repository: Repository): ViewModel() {
+class HomeViewModel(val context: Context?, global: Global?, indonesia: Indonesia?): ViewModel() {
 
     private val _globalData = MutableLiveData<Global>()
     val globalData : LiveData<Global>
@@ -31,42 +31,11 @@ class HomeViewModel(val context: Context?, private val repository: Repository): 
         get() = _mythBuster
 
     init {
-        getGlobalData()
-        getIndonesiaData()
+        _globalData.value = global
+        _indonesiaData.value = indonesia
         getMythData()
     }
 
-    fun getGlobalData() {
-
-        viewModelScope.launch {
-            withContext(Dispatchers.IO) {
-                try {
-                    val response = repository.getGlobalDataRepo()
-                    Log.d(TAG, response.affectedCountries.toString())
-                    _globalData.postValue(response)
-                } catch (e: Exception) {
-                    Log.d(TAG, e.message!!)
-                    _globalData.postValue(null)
-                }
-            }
-        }
-    }
-
-    fun getIndonesiaData() {
-
-        viewModelScope.launch {
-            withContext(Dispatchers.IO) {
-                try {
-                    val response = repository.getIndonesiaDataRepo()
-                    Log.d(TAG, response.country)
-                    _indonesiaData.postValue(response)
-                } catch (e: Exception) {
-                    Log.d(TAG, e.message!!)
-                    _indonesiaData.postValue(null)
-                }
-            }
-        }
-    }
 
     fun getMythData() {
 

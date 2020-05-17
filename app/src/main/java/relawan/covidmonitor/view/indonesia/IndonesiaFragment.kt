@@ -61,13 +61,13 @@ class IndonesiaFragment : Fragment(), OnMapReadyCallback {
         })
 
         indonesiaViewModel.indonesiaData.observe(viewLifecycleOwner, Observer {
-            displayName = it.country
+            displayName = it.country!!
             setActionBarTitle(it.country)
 
             binding.flagDetail.let {view ->
                 Glide
                     .with(view.context)
-                    .load(it.countryInfo.flag)
+                    .load(it.countryInfo?.flag)
                     .apply(RequestOptions()).override(150, 100)
                     .into(binding.flagDetail)
             }
